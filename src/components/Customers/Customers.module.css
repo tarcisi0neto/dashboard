@@ -1,0 +1,60 @@
+.container {
+    width: 22.77rem;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.customersText{
+    color: var(--gray-900);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.6rem;
+    padding-bottom: 1rem;
+}
+
+.containerInfoCustomers {
+    display:  flex;
+    flex-direction: column;
+}
+
+.name{
+    color: var(--gray-900);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+
+.email{
+    color: var(--gray-500);
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.1rem;
+}
+
+.containerAvatarInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    line-height: 0;
+}
+
+.amount {
+    color: var(--gray-900);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}

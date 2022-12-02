@@ -1,0 +1,30 @@
+.containerHeader {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+    justify-content: space-between;
+}
+
+.containerSearch {
+    display: flex;
+}
+
+.containerProfile {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.notification {
+    
+}
+
+.avatar {
+    height: 2rem;
+    width: 2rem;
+}
+
+
+.logo {
+    margin-right: 2rem;
+}

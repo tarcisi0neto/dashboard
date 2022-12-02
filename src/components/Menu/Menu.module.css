@@ -1,0 +1,23 @@
+.overview{
+    display: flex;
+    align-items: center;
+    padding: 1.3rem 0 1.3rem 1rem;
+    gap: 1rem;
+    color: var(--green-500);
+    font-weight: 700;
+}
+
+.containerCustomersAndProducts {
+    padding-top: 1rem;
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+
+
+@media (max-width: 768px) {
+    .containerCustomersAndProducts {
+        flex-direction: column;
+        width: 100%;
+    }
+}
