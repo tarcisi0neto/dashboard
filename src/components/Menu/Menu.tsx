@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { Sales } from '../Sales/Sales';
 import { Customers } from '../Customers/Customers';
 import { Products } from '../Products/Produtcs';
+import { TransactionList } from '../TransactionList/TransactionList';
 
 const drawerWidth = 240;
 
@@ -111,6 +112,9 @@ export function Menubar(props: Props) {
           <div className={styles.containerCustomersAndProducts}>
             <Customers/>
             <Products />
+          </div>
+          <div className={styles.containerCustomersAndProducts}>
+            <TransactionList />
           </div>
         </Typography>
       </Box>
