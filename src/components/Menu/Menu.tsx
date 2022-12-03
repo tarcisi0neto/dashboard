@@ -109,11 +109,11 @@ export function Menubar(props: Props) {
             <Sales />
         </Typography>
         <Typography >
-          <div className={styles.containerCustomersAndProducts}>
+          <div className={styles.containerCard}>
             <Customers/>
             <Products />
           </div>
-          <div className={styles.containerCustomersAndProducts}>
+          <div className={styles.containerCard}>
             <TransactionList />
           </div>
         </Typography>

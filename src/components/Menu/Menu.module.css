@@ -7,7 +7,7 @@
     font-weight: 700;
 }
 
-.containerCustomersAndProducts {
+.containerCard {
     padding-top: 1rem;
     display: flex;
     width: 100%;
@@ -16,7 +16,7 @@
 
 
 @media (max-width: 768px) {
-    .containerCustomersAndProducts {
+    .containerCard {
         flex-direction: column;
         width: 100%;
     }
