@@ -7,7 +7,7 @@ import styles from '../Customers/Customers.module.css';
 
 export function Customers() {
 
-    const { data: customers } = useFecth<CustomersModel[]>(`${environment.url}/users`)
+    const { data: customers, isFetching, error } = useFecth<CustomersModel[]>(`${environment.url}/users`)
 
 
     return(
@@ -17,13 +17,8 @@ export function Customers() {
                     <div className={styles.containerCustomers}>
                         <p className={styles.customersText}>Latest Customers</p>  
                     </div>
-                    <CardActionArea 
-                        sx={{
-                            height: '28rem',
-                            overflow: "hidden",
-                            overflowY: "scroll",
-                          }}
-                    > 
+                    <CardActionArea sx={{height: '28rem', overflow: "hidden", overflowY: "scroll"}}> 
+                        {isFetching && <p>Carregando...</p>}
                         {customers?.map(customers => {
                             return (
                                 <section>
