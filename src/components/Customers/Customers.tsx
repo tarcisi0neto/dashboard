@@ -1,27 +1,14 @@
 import { Card, CardActionArea } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { Avatar } from '../Avatar/Avatar';
+import { environment } from '../../environments/environments';
+import { useFecth } from '../../hooks/useFecth';
+import { CustomersModel } from '../../Models/Customers.model';
+import { Avatar } from '@mui/material';
 import styles from '../Customers/Customers.module.css';
 
 export function Customers() {
 
-    type Customers = {
-        name: string,
-        email: string,
-        lastPurchaseValue: string
-    }
+    const { data: customers } = useFecth<CustomersModel[]>(`${environment.url}/users`)
 
-    const [customers, setCustomers] = useState<Customers[]>([])
-    
-    useEffect(() => {}, [])
-
-    useEffect(() => {
-        fetch('https://633740935327df4c43d22bb2.mockapi.io/api/v1/users')
-        .then(res => res.json())
-        .then(data => {
-            setCustomers(data);
-        })
-    }, [])
 
     return(
         <div className={styles.container}>
@@ -36,12 +23,12 @@ export function Customers() {
                             overflow: "hidden",
                             overflowY: "scroll",
                           }}
-                    >
-                        {customers.map(customers => {
+                    > 
+                        {customers?.map(customers => {
                             return (
                                 <section>
                                     <div className={styles.containerAvatarInfo}>
-                                        <Avatar />
+                                        <Avatar src={customers.avatar}/>
                                         <div className={styles.containerInfoCustomers}>
                                             <span className={styles.name}>{customers.name}</span>
                                             <span className={styles.email}>{customers.email}</span>

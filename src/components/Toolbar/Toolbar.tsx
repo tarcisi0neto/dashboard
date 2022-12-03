@@ -2,7 +2,9 @@ import logo from '../../assets/logo.svg'
 import styles from '../Toolbar/Toolbar.module.css';
 import { Search } from '../Search/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Avatar } from '../Avatar/Avatar';
+
+import avatarProfile from '../../assets/Avatar.png';
+import { Avatar } from '@mui/material';
 
 
 
@@ -19,7 +21,7 @@ export function Toolbar() {
                         <NotificationsIcon />
                     </div>
                     <div className={styles.avatar}>
-                        <Avatar />
+                         <Avatar src={avatarProfile} />
                     </div>
                 </div>
             </header>
