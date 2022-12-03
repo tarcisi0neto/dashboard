@@ -2,6 +2,10 @@
     background-color: #DEF7EC !important;
     color: #03543F;
     font-weight: 400;
+    width: 5.18rem;
+    height: 1.37rem;
+    line-height: 1.8;
+    border: 1px solid #c5dad1;
 }
 
 
@@ -9,4 +13,7 @@
     background-color:#FBD5D5!important;
     color: #9B1C1C;
     font-weight: 400;
+    width: 5.18rem;
+    height: 1.37rem;
+    line-height: 1.8;
 }
