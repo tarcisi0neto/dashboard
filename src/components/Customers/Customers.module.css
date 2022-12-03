@@ -9,6 +9,7 @@ section {
     border-bottom: 1px solid var(--gray-200);
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
+    margin-right: 1rem;
 }
 
 .customersText{
