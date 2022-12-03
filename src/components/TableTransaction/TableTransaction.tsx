@@ -45,13 +45,13 @@ export function TableTransaction() {
     if(transaction.completed){
       return (
         <div>
-          <Badge className={styles.badges} pill bg="success">Completed</Badge>{' '}
+          <Badge className={styles.badgesSuccess} pill bg="success">Completed</Badge>{' '}
         </div>
       )
     }else {
       return (
         <div>
-          <Badge className={styles.badges} pill bg="danger">Cancelled</Badge>{' '}
+          <Badge className={styles.badgesCancelled} pill bg="danger">Cancelled</Badge>{' '}
         </div>
       )
     }
