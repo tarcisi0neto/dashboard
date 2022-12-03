@@ -32,7 +32,7 @@ export function Menubar(props: Props) {
   };
 
   const drawer = (
-    <div>
+    <div >
       <List>
         <div className={styles.overview}>
             < PieChartIcon />
@@ -71,7 +71,7 @@ export function Menubar(props: Props) {
     <Box sx={{ display: 'flex',  color: 'text.secondary'}}>
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }}}
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, borderRight: '1px solid #E5E7EB'}}
         aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
