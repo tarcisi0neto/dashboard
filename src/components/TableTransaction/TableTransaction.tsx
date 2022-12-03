@@ -7,6 +7,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { TransactionsModel } from '../../Models/Transaction';
+import { environment } from '../../environments/environments';
+import { useFecth } from '../../hooks/useFecth';
+import { format } from 'date-fns';
+import Badge from 'react-bootstrap/Badge';
+
+import styles from '../TableTransaction/TableTransaction.module.css';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,24 +36,28 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(
-  transaction: string,
-  dataTime: string,
-  amount: string,
-  status: string,
-) {
-  return { transaction, dataTime, amount, status};
-}
-
-const rows = [
-  createData('Payment from Bonnie Green', 'Apr 23 ,2021', '$2300', 'completed'),
-  createData('Payment refund to #00910', 'Apr 23, 2021','-$670', 'completed'),
-  createData('Payment failed from #087651', 'Apr 18, 2021', '$234', 'Cancelled'),
-  createData('Payment from Jese Leos', 'Apr 15, 2021', '$2300', 'In progress'),
-  createData('Payment from THEMSBERG LLC', 'Apr 11, 2021', '$280', 'completed'),
-];
 
 export function TableTransaction() {
+  
+  const { data: transactions, isFetching, error } = useFecth<TransactionsModel[]>(`${environment.url}/transactions`)
+
+  function handleCompleteTransaction(transaction:TransactionsModel){
+    if(transaction.completed){
+      return (
+        <div>
+          <Badge className={styles.badges} pill bg="success">Completed</Badge>{' '}
+        </div>
+      )
+    }else {
+      return (
+        <div>
+          <Badge className={styles.badges} pill bg="danger">Cancelled</Badge>{' '}
+        </div>
+      )
+    }
+  }
+
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -59,16 +70,23 @@ export function TableTransaction() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.transaction}>
-              <StyledTableCell component="th" scope="row" style={{color:'var(--gray-900)', fontWeight:700 }}>{row.transaction}</StyledTableCell>
-              <StyledTableCell align="center" style={{color:'var(--gray-500)'}}>{row.dataTime}</StyledTableCell>
-              <StyledTableCell align="center" style={{color:'var(--gray-900)', fontWeight:700 }}>{row.amount}</StyledTableCell>
-              <StyledTableCell align="center">{row.status}</StyledTableCell>
-            </StyledTableRow>
-          ))}
+          {isFetching && <p>Carregando...</p>}
+          {transactions?.map((transaction) => {
+            let date = new Date(transaction.createdAt);
+            const formatDate = format(date, "MMM , d, yyyy");
+            return (
+              <StyledTableRow key={transaction.id}>
+                <StyledTableCell component="th" scope="row" style={{color:'var(--gray-900)', fontWeight:700 }}>{transaction.firstName} {transaction.lastName}</StyledTableCell>
+                <StyledTableCell align="center" style={{color:'var(--gray-500)'}}>{formatDate}</StyledTableCell>
+                <StyledTableCell align="center" style={{color:'var(--gray-900)', fontWeight:700 }}>{transaction.amount}</StyledTableCell>
+                <StyledTableCell align="center"> 
+                  {handleCompleteTransaction(transaction)}
+                </StyledTableCell>
+              </StyledTableRow>
+            )
+          })}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+} 

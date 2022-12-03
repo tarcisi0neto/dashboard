@@ -11,7 +11,7 @@ export function TransactionList() {
                     <p className={styles.text}>Transaction</p>  
                     <span className={styles.subText}>This is a list of latest transaction</span>
                 </div>
-                <CardActionArea>
+                <CardActionArea sx={{height: '28rem', overflow: "hidden", overflowY: "scroll"}}>
                     <TableTransaction />
                 </CardActionArea>
             </Card>
