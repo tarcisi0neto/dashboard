@@ -28,7 +28,7 @@ body, input, textarea, button {
   
   /* Works on Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
   }
   
   *::-webkit-scrollbar-track {
@@ -38,5 +38,5 @@ body, input, textarea, button {
   *::-webkit-scrollbar-thumb {
     background-color: var(--gray-400);
     border-radius: 20px;
-    border: 3px solid var(--gray-200);
+    border: 1px solid var(--gray-200);
   }
