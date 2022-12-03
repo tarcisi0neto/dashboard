@@ -1,7 +1,14 @@
 import { Card, CardActionArea } from '@mui/material';
+import { environment } from '../../environments/environments';
+import { useFecth } from '../../hooks/useFecth';
+import { ProductsModel } from '../../Models/Products.model';
 import styles from '../Products/Products.module.css';
 
 export function Products() {
+
+    const { data: products, isFetching, error } = useFecth<ProductsModel[]>(`${environment.url}/products`)
+
+
     return (
         <div className={styles.container}>
             <div style={{ width: '100%'}}>
@@ -9,34 +16,21 @@ export function Products() {
                     <div className={styles.containerProducts}>
                         <p className={styles.productsText}>Top Products</p>  
                     </div>
-                    <CardActionArea>
-                    <section>
-                            <div className={styles.containerInfoCustomers}>
-                                <span className={styles.name} >Design System Pro</span>
-                                <span className={styles.tools}>React & Bootstrap Framework</span>
-                            </div>
-                            <div className={styles.containerAmount}>
-                                <span className={styles.sales}>367<span> sales</span></span>
-                            </div>
-                        </section>
-                    <section>
-                            <div className={styles.containerInfoCustomers}>
-                                <span className={styles.name} >Design System Pro</span>
-                                <span className={styles.tools}>React & Bootstrap Framework</span>
-                            </div>
-                            <div className={styles.containerAmount}>
-                                <span className={styles.sales}>367<span> sales</span></span>
-                            </div>
-                        </section>
-                    <section>
-                            <div className={styles.containerInfoCustomers}>
-                                <span className={styles.name} >Design System Pro</span>
-                                <span className={styles.tools}>React & Bootstrap Framework</span>
-                            </div>
-                            <div className={styles.containerAmount}>
-                                <span className={styles.sales}>367<span> sales</span></span>
-                            </div>
-                        </section>
+                    <CardActionArea sx={{height: '28rem', overflow: "hidden", overflowY: "scroll"}}>
+                        {products?.map(products => {
+                            return (
+                                <section>
+                                    <div className={styles.containerInfoCustomers}>
+                                        <span className={styles.name} >{products.name}</span>
+                                        <span className={styles.tools}>{products.description}</span>
+                                    </div>
+                                    <div className={styles.containerAmount}>
+                                        <span className={styles.sales}>{products.totalSales}<span> sales</span></span>
+                                    </div>
+                                </section>
+
+                            )
+                        } )}
                     </CardActionArea>
                 </Card>
             </div>
