@@ -117,6 +117,9 @@ export function Menubar(props: Props) {
             <TransactionList />
           </div>
         </Typography>
+        <Typography>
+          <footer className={styles.footerText}>© 2022 Tarcísio Neto, rights reserved.</footer>
+        </Typography>
       </Box>
     </Box>
   );

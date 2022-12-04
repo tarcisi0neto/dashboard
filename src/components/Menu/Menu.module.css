@@ -14,10 +14,26 @@
     gap: 1rem;
 }
 
+.footerText{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 20vh;
+    align-items: center;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+}
+
 
 @media (max-width: 768px) {
     .containerCard {
         flex-direction: column;
         width: 100%;
+    }
+
+    .footerText{ 
+        font-size: 2rem;
     }
 }

@@ -10,7 +10,7 @@ import { Avatar } from '@mui/material';
 
 export function Toolbar() {
     return (
-        <div>
+        <div className={styles.container}>
             <header className={styles.containerHeader}>
                 <div className={styles.containerSearch}>
                     <img className={styles.logo} src={logo} alt="" />

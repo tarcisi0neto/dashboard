@@ -1,3 +1,7 @@
+.container {
+
+}
+
 .containerHeader {
     display: flex;
     padding: 1rem;
@@ -27,4 +31,12 @@
 
 .logo {
     margin-right: 2rem;
+}
+
+@media (max-width: 768px) {
+
+    .containerHeader {
+        width: 185vw;
+        height: 10vh;
+    }
 }
