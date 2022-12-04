@@ -23,7 +23,7 @@ export function Customers() {
                             return (
                                 <section>
                                     <div className={styles.containerAvatarInfo}>
-                                        <Avatar src={customers.avatar}/>
+                                        <Avatar  sx={{ width: '3rem', height: '3rem' }} src={customers.avatar}/>
                                         <div className={styles.containerInfoCustomers}>
                                             <span className={styles.name}>{customers.name}</span>
                                             <span className={styles.email}>{customers.email}</span>

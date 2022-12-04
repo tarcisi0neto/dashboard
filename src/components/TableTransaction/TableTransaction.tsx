@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import { createTheme, styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -20,9 +20,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     backgroundColor: theme.palette.common.white,
     color: '#6B7280',
     fontSize: 12,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 24,
+    },
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 12,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 24,
+    },
   },
 }));
 
@@ -33,6 +39,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   // hide last border
   '&:last-child td, &:last-child th': {
     border: 0,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 24,
   },
 }));
 
@@ -57,12 +66,11 @@ export function TableTransaction() {
     }
   }
 
-
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
-          <TableRow>
+          <TableRow >
             <StyledTableCell>TRANSACTION</StyledTableCell>
             <StyledTableCell align="center">DATE & TIME</StyledTableCell>
             <StyledTableCell align="center">AMOUNT</StyledTableCell>
@@ -76,7 +84,7 @@ export function TableTransaction() {
             const formatDate = format(date, "MMM , d, yyyy");
             return (
               <StyledTableRow key={transaction.id}>
-                <StyledTableCell component="th" scope="row" style={{color:'var(--gray-900)', fontWeight:700 }}>{transaction.firstName} {transaction.lastName}</StyledTableCell>
+                <StyledTableCell component="th" scope="row" style={{color:'var(--gray-900)', fontWeight:700}}>{transaction.firstName} {transaction.lastName}</StyledTableCell>
                 <StyledTableCell align="center" style={{color:'var(--gray-500)'}}>{formatDate}</StyledTableCell>
                 <StyledTableCell align="center" style={{color:'var(--gray-900)', fontWeight:700 }}>${transaction.amount}</StyledTableCell>
                 <StyledTableCell align="center"> 

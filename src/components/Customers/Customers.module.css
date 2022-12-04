@@ -58,4 +58,35 @@ section {
     .container {
         width: 100%;
     }
+
+    .customersText{
+        color: var(--gray-900);
+        font-weight: 700;
+        font-size: 2.25rem;
+        line-height: 1.6rem;
+        padding-bottom: 1rem;
+    }
+
+    section {
+        height: 10vh;
+    }
+
+    .name{
+        font-size: 1.6rem;
+        line-height: 19.51px;
+        padding-bottom: 1rem;
+    }
+
+    .email{
+        font-size: 1.2rem;
+        line-height: 14.63px;
+    }
+    
+    .amount{
+        font-size: 1.6rem
+    }
+
+    .containerInfoCustomers{
+        padding-bottom: 1rem;
+    }
 }

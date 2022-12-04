@@ -22,3 +22,19 @@
 .recharts-cartesian-axis-tick {    
     font-size: 0.75rem !important;
 }
+
+
+@media (max-width: 768px) {
+
+    .badgesSuccess {
+        width: 35vw;
+        height: 5vh;
+    }
+    
+    
+    .badgesCancelled {
+        width: 35vw;
+        height: 5vh;
+    }
+
+}

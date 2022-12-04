@@ -37,6 +37,7 @@ section {
 .containerInfoCustomers {
     display:  flex;
     flex-direction: column;
+    width: 70%;
 }
 
 .sales {
@@ -44,4 +45,31 @@ section {
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5rem;
+}
+
+
+@media (max-width: 768px) {
+
+    section {
+        margin-bottom: 2rem;
+    }
+    
+    .productsText {
+        font-size: 2.25rem;
+    }
+
+    .name {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        line-height: initial;
+    }
+
+    .tools{
+        font-size: 1.2rem;
+        text-overflow: clip
+    }
+
+    .sales {
+        font-size: 1.5rem;
+    }
 }
