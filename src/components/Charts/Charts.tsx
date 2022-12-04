@@ -1,73 +1,46 @@
+import { format } from "date-fns";
 import {LineChart, Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend, ResponsiveContainer} from "recharts";
+import { environment } from "../../environments/environments";
+import { useFecth } from "../../hooks/useFecth";
+import { TransactionsModel } from "../../Models/Transaction";
 
-const data = [
-  {
-    name: "",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400
-  },
-  {
-    name: "01 Apr",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210
-  },
-  {
-    name: "02 Apr",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290
-  },
-  {
-    name: "02 Apr",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000
-  },
-  {
-    name: "03 Apr",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181
-  },
-  {
-    name: "04 Apr",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500
-  },
-  {
-    name: "05 Apr",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100
-  }
-];
 
-export function Charts() {
-  return (
+
+export default function Charts() {
+
+  const { data: transactions, isFetching, error } = useFecth<TransactionsModel[]>(`${environment.url}/transactions`)
+
+  const data = transactions?.map(res => { 
+    let date = new Date(res.createdAt);
+    const formatDate = format(date, "MMM , d, yyyy");
+    res.createdAt = formatDate;
+    return res
+  
+  });
+
+    
+    return (
+      
+      <div style={{ width: '100%' }}>
+        <ResponsiveContainer width="100%" height={400}>
           <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-              top: 5,
+            width={500}
+            height={200}
+            data={data}
+            margin={{
+              top: 10,
               right: 30,
-              left: 20,
-              bottom: 5
-          }}
+              left: 0,
+              bottom: 0,
+            }}
           >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Line
-              type="monotone"
-              dataKey="pv"
-              stroke="#8884d8"
-              activeDot={{ r: 8 }}
-          />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+
+            <XAxis dataKey="createdAt" tick={{ fontSize: '0.7rem'}} />
+            <YAxis tickFormatter={tick => `$${[tick]}` } domain={[0,1500]} tick={{ fontSize: '0.7rem'}}/>
+            <Tooltip />
+            <Line type="monotone" dataKey="amount" stroke="#0E9F6E" fill="#0E9F6E" strokeWidth={3} />
           </LineChart>
-  );
-}
+        </ResponsiveContainer>
+      </div>
+    );
+  }

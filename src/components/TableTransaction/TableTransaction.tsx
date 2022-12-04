@@ -78,7 +78,7 @@ export function TableTransaction() {
               <StyledTableRow key={transaction.id}>
                 <StyledTableCell component="th" scope="row" style={{color:'var(--gray-900)', fontWeight:700 }}>{transaction.firstName} {transaction.lastName}</StyledTableCell>
                 <StyledTableCell align="center" style={{color:'var(--gray-500)'}}>{formatDate}</StyledTableCell>
-                <StyledTableCell align="center" style={{color:'var(--gray-900)', fontWeight:700 }}>{transaction.amount}</StyledTableCell>
+                <StyledTableCell align="center" style={{color:'var(--gray-900)', fontWeight:700 }}>${transaction.amount}</StyledTableCell>
                 <StyledTableCell align="center"> 
                   {handleCompleteTransaction(transaction)}
                 </StyledTableCell>

@@ -1,7 +1,8 @@
 import { Card, CardActionArea } from '@mui/material';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import styles from '../Sales/Sales.module.css';
-import { Charts } from '../Charts/Charts';
+import Charts from '../Charts/Charts';
+
 
 
 

@@ -17,3 +17,8 @@
     height: 1.37rem;
     line-height: 1.8;
 }
+
+
+.recharts-cartesian-axis-tick {    
+    font-size: 0.75rem !important;
+}
