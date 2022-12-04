@@ -59,17 +59,17 @@ section {
     }
 
     .name {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         margin-bottom: 0.75rem;
         line-height: initial;
     }
 
     .tools{
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         text-overflow: clip
     }
 
     .sales {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 }
